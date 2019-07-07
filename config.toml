@@ -1,0 +1,40 @@
+baseURL = "http://evilroot.eu.org"
+languageCode = "en-us"
+title = "evilroot's blog"
+theme = "ghostwriter"
+pygmentsCodefences = true
+pygmentsStyle = "github"
+
+[Author]
+    name = "evilroot"
+    profile = "https://twitter.com/evilr00t"
+
+[Taxonomies]
+    tag = "tags"
+
+[Permalinks]
+    post = "/:year/:month/:day/:filename/"
+
+[[menu.main]]
+    name = "Blog"
+    url = "/"
+    weight = 1
+
+[Params]
+    intro = true
+    headline = "Welcome to evilroot's blog"
+    description = "rants, ideas, comments..."
+    opengraph = true
+    shareTwitter = true
+    readingTime = true
+    readingTimeText = "Estimated reading time:"
+    dateFormat = "Mon, Jan 2, 2006"
+    github = "https://github.com/evilr00t"
+    linkedin = "https://linkedin.com/in/evilr00t/"
+    shareFacebook = true
+    shareGooglePlus = false
+    shareLinkedIn = false
+
+
+
+
