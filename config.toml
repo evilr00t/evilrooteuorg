@@ -1,4 +1,4 @@
-baseURL = "http://evilroot.eu.org"
+baseURL = "https://evilroot.eu.org/"
 languageCode = "en-us"
 title = "evilroot's blog"
 theme = "ghostwriter"
