@@ -3,7 +3,8 @@ languageCode = "en-us"
 title = "evilroot's blog"
 theme = "ghostwriter"
 pygmentsCodefences = true
-pygmentsStyle = "github"
+pygmentsUseClasses = true
+pygmentsStyle = "colorful"
 
 [Author]
     name = "evilroot"
@@ -13,7 +14,7 @@ pygmentsStyle = "github"
     tag = "tags"
 
 [Permalinks]
-    post = "/:year/:month/:day/:filename/"
+    post = "/:year/:month/:day/:title/"
 
 [[menu.main]]
     name = "Blog"
