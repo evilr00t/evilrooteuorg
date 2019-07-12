@@ -101,7 +101,7 @@ img {
         float: left;
         margin-right: 40px;
     }
-    
+
     &[src$="align-right"] {
         float: right;
         margin-left: 40px;
@@ -126,10 +126,10 @@ pre {
 
 code {
     padding: 2px 4px;
-    font-size: 90%;
-    color: $secondary;
-    background-color: #F1F0EA;
-    border-radius: 4px
+    font-size: 0.8em;
+    color: black;
+    // background-color: #F1F0EA;
+    // border-radius: 4px
 }
 
 hr {
