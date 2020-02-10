@@ -1,5 +1,5 @@
 baseURL = "https://evilroot.eu.org/"
-languageCode = "en-us"
+languageCode = "en-gb"
 title = "evilroot's blog"
 theme = "ghostwriter"
 pygmentsCodefences = true
