@@ -117,7 +117,7 @@ template { display: none; }
 .chroma .gl { text-decoration: underline; }
 .chroma .w { color: #bbb; }
 html, body { height: 100%; }
-body { background: #fefefe; color: #424242; font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 1em; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { background: #fefefe; color: #424242; font-family: "Source Sans Pro", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 1em; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 .highlight { position: relative; }
 .highlight:before { content: ""; width: 100vw; position: absolute; top: 0; left: 50%; height: 100%; transform: translateX( -50% ); z-index: -1; background-color: #f2f2f2; }
 h1, h2, h3, h4, h5, h6 { margin-bottom: 20px; text-transform: none; }
@@ -213,7 +213,7 @@ table tr { border-bottom: 1px dotted #aeadad; }
 .author-profile { margin: 0 40px; }
 .author-profile:after { border-bottom: 1px dotted #161616; content: ""; display: block; margin: 40px auto 0; width: 100px; }
 .author-heading { margin: 15px auto; text-align: center; width: 100%; }
-.author-avatar { border-radius: 50px; display: inline; height: 50px; margin: 5px 10px 0 0; width: 50px; vertical-align: middle; }
+.author-avatar { border-radius: 50px; display: inline; margin: 5px 10px 0 0; vertical-align: middle; }
 .author-name { display: inline; font-size: 52px; font-weight: 700; text-align: center; text-transform: uppercase; vertical-align: middle; }
 .author-meta { color: #aeadad; font-size: 14px; font-weight: 600; line-height: 1; margin: 25px 0 0; text-align: center; text-transform: uppercase; }
 .author-meta span { display: inline-block; margin: 0 10px 8px; }

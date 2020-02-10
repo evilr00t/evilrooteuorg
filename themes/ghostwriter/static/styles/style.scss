@@ -15,7 +15,7 @@ html, body { height: 100%; }
 body {
     background: $background;
     color: #424242;
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-family: "Source Sans Pro", -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     font-size: 1em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -519,9 +519,7 @@ table {
 .author-avatar {
     border-radius: 50px;
     display: inline;
-    height: 50px;
     margin: 5px 10px 0 0;
-    width: 50px;
     vertical-align: middle;
 }
 
