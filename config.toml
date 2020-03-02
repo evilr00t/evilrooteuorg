@@ -5,6 +5,7 @@ theme = "ghostwriter"
 pygmentsCodefences = true
 pygmentsUseClasses = true
 pygmentsStyle = "colorful"
+disqusShortname = "evilroots-blog"
 
 [Author]
     name = "evilroot"
@@ -32,10 +33,6 @@ pygmentsStyle = "colorful"
     dateFormat = "Mon, Jan 2, 2006"
     github = "https://github.com/evilr00t"
     linkedin = "https://linkedin.com/in/evilr00t/"
-    shareFacebook = true
+    shareFacebook = false
     shareGooglePlus = false
-    shareLinkedIn = false
-
-
-
-
+    shareLinkedIn = true
