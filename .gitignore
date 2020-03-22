@@ -1,2 +1,4 @@
 tags
 themes/ghostwriter/static/dist/
+public/
+.DS_Store
