@@ -16,7 +16,7 @@ body {
     background: $background;
     color: #424242;
     font-family: "Source Sans Pro", -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    font-size: 1em;
+    font-size: 1.1em;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -120,16 +120,22 @@ pre {
     font-size: 16px;
 
     code {
+        all: unset;
         padding: 0;
+        font-size: 0.8em;
+        color: black;
     }
 }
 
 code {
-    padding: 2px 4px;
-    font-size: 0.8em;
+    // padding: 2px 4px;
+    font-size: 1em;
+    padding-left: 8px;
+    border-radius: 4px;
+    padding-right: 8px;
     color: black;
-    // background-color: #F1F0EA;
-    // border-radius: 4px
+    background-color: rgba(255, 229, 100, 0.4);
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 hr {
