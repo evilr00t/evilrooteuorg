@@ -1,6 +1,6 @@
-// Colours //
-// ============================================================ //
-// ============================================================ //
+/* Colours //
+============================================================
+============================================================ */
 
 $primary: rgb(240, 8, 0);
 $secondary: #161616;
@@ -24,6 +24,13 @@ body {
 
 .highlight {
     position: relative;
+}
+
+.similar {
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 20px;
+    border: 1px solid $secondary;
 }
 
 .highlight:before {
@@ -128,14 +135,14 @@ pre {
 }
 
 code {
-    // padding: 2px 4px;
-    font-size: 1em;
-    padding-left: 8px;
+    /* padding: 2px 4px; */
+    font-size: 0.8em;
+    padding: 2px;
     border-radius: 4px;
-    padding-right: 8px;
     color: black;
     background-color: rgba(255, 229, 100, 0.4);
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    box-shadow: 0.15em 0.15em 0 #E9EDF8;
 }
 
 hr {

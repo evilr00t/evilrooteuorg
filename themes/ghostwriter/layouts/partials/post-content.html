@@ -4,4 +4,17 @@
     {{ end }}
 
     {{ .Content }}
+
+    {{ $related := .Site.RegularPages.Related . | first 5 }}
+    {{ with $related }}
+    <div class="similar">
+    <h3>See Also</h3>
+    <ul>
+        {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> / {{ dateFormat (default "Mon, Jan 2, 2006") .Date }} / {{ .ReadingTime }} min</li>
+        {{ end }}
+    </ul>
+    {{ end }}
+    </div>
 </div>
+
