@@ -317,7 +317,7 @@ table {
 .post-container { margin: 0 40px; }
 
 .post-header {
-    border-bottom: 6px solid $secondary;
+    border-bottom: 6px dashed $secondary;
     margin: 0 0 20px;
     padding: 0 0 20px;
     text-align: center;
@@ -348,15 +348,15 @@ table {
     a:hover { color: $primary; }
 }
 
-.post-line {
-    &:after {
-        border-bottom: 1px dotted $secondary;
-        content: "";
-        display: block;
-        margin: 40px auto 0;
-        width: 100px;
-    }
-}
+// .post-line {
+//     &:after {
+//         border-bottom: 1px dotted $secondary;
+//         content: "";
+//         display: block;
+//         margin: 40px auto 0;
+//         width: 100px;
+//     }
+// }
 
 .post-content {
     a:hover {
