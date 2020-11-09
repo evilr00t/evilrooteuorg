@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html{{ if .Site.Params.opengraph }} prefix="og: http://ogp.me/ns#"{{ end }}>
+<html{{ if .Site.Params.opengraph }} prefix="og: http://ogp.me/ns#"{{ end }} lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +11,16 @@
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {{ if .Site.Params.opengraph }}{{ partial "opengraph.html" . }}{{ end }}
-        <link rel="stylesheet" href="{{ .Site.BaseURL }}dist/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="{{ .Site.BaseURL }}dist/styles.css" onload="this.media='all'">
+        <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" onload="this.rel='stylesheet'"/>
+        <link rel="preload" as="font" type="font/woff2" crossorigin href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0"/>
+        <!-- Google Fonts -->
+        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic&display=swap" rel="preload" as="style" type="text/css" onload="this.rel='stylesheet'"/>
         {{ if .OutputFormats.Get "RSS" }}
             <link href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml">
         {{ end }}
         {{ partial "extra-in-head.html" . }}
         {{ partial "exponea.html" . }}
-        <!-- Google Fonts -->
-        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
     </head>
     <body>
         {{ template "_internal/google_analytics.html" . }}
