@@ -24,18 +24,18 @@
                 </p>
             </div>
         </footer>
-        
+
         {{ if .Site.Params.highlightJsUrl }}
-            <script src="{{ .Site.Params.highlightJsUrl }}"></script>
+            <script defer src="{{ .Site.Params.highlightJsUrl }}"></script>
         {{ else if .Site.Params.highlightJsLocalUrl }}
-            <script src="{{ .Site.BaseURL }}{{ .Site.Params.highlightJsLocalUrl }}"></script>
+            <script defer src="{{ .Site.BaseURL }}{{ .Site.Params.highlightJsLocalUrl }}"></script>
         {{ else }}
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js" crossorigin="anonymous"></script>
         {{ end }}
 
         // JS
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js" integrity="sha256-nA828blBCdUSSdI8jpciOZsf72IGt1eBcdx1ioEfa8o=" crossorigin="anonymous"></script>
-        <script src="{{ .Site.BaseURL }}js/scripts.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js" integrity="sha256-nA828blBCdUSSdI8jpciOZsf72IGt1eBcdx1ioEfa8o=" crossorigin="anonymous"></script>
+        <script defer src="{{ .Site.BaseURL }}js/scripts.js"></script>
     </body>
 </html>
