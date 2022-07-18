@@ -3,6 +3,7 @@ title: "SOPS - an easy way to encrypt your credentials..."
 description: "SOPS + PGP + kubernetes..."
 date: 2019-08-14T13:51:07+0100
 draft: false
+keywords: linux, devops
 ---
 
 ## Introduction
@@ -15,6 +16,88 @@ As the project
 
 First of all we should generate a PGP key pair just for our team/app/deployment.
 
+{{<highlight ruby>}}
+module FeedBuilder
+  module_function
+
+  def for(user)
+    Tweet.where(author: user.followed_users)
+         .order(created_at: :desc)
+         .limit(10)
+  end
+end
+{{</highlight>}}
+
+{{<highlight python>}}
+import click  # noqa: WPS226
+import prettytable  # noqa: WPS226
+from old_db import Database
+
+
+@click.group()
+@click.option("--debug/--no-debug", default=False)
+@click.option(
+    "-p",
+    "--path",
+    default="mailbox.sqlite",
+    help="Path to database",
+    metavar="PATH",
+    show_default=True,
+)
+@click.pass_context
+def cli(ctx, debug, path):
+    """
+    Script to manage E-DOT simple mail service.
+
+    WARNING: Be sure to make a backup before you're trying to change something.
+
+    \t\t\t\t\t\tevilroot <k@e-dot.uk>
+    """
+
+    # Let's ensure we have dict()
+    ctx.ensure_object(dict)
+
+    # Define variables across our context
+    ctx.obj["DEBUG"] = debug
+    ctx.obj["PATH"] = path
+
+
+@cli.command()  # noqa: WPS210
+@click.pass_context
+def list_users(ctx):
+    """
+    Simple function to display all users
+    """
+    db = Database(ctx.obj["PATH"])
+    with db:
+        db.query(
+            "SELECT virtual_users.id, email,gid,uid,home,quota_in_mb FROM virtual_users"
+        )
+        myTable = prettytable.from_db_cursor(db.cursor)
+        print(myTable)  # noqa: WPS421
+
+
+@cli.command()
+@click.pass_context
+def list_aliases(ctx):
+    """
+    Simple function to display all users
+    """
+    db = Database(ctx.obj["PATH"])
+    with db:
+        db.query("SELECT id, source, destination from virtual_aliases")
+        myTable = prettytable.from_db_cursor(db.cursor)
+        print(myTable)  # noqa: WPS421
+
+
+def main():
+    cli()
+
+
+if __name__ == "__main__":
+    main()
+
+{{< /highlight >}}
 
 {{<highlight shell "hl_lines=1 10 11 15 30">}}
 λ: pgp --gen-key

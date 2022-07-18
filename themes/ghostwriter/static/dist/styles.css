@@ -129,7 +129,17 @@ template { display: none; }
 .chroma .gl { text-decoration: underline; }
 .chroma .w { color: #bbb; }
 html, body { height: 100%; }
-body { background: #fefefe; color: #424242; font-family: "Source Sans Pro", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 1.1em; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { background: #fefefe; color: #424242; font-family: system-ui, 
+    -apple-system, BlinkMacSystemFont, 
+    "Segoe UI", 
+    "Roboto", 
+    "Oxygen", 
+    "Ubuntu", 
+    "Cantarell", 
+    "Fira Sans", 
+    "Droid Sans", 
+    "Helvetica Neue", 
+    Arial, sans-serif; font-size: 1.1em; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 .highlight { position: relative; }
 .similar { padding-left: 1em; padding-right: 1em; margin-bottom: 20px; border: 1px solid #161616; }
 .highlight:before { content: ""; width: 100vw; position: absolute; top: 0; left: 50%; height: 100%; transform: translateX( -50% ); z-index: -1; background-color: #f2f2f2; }
