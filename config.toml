@@ -6,6 +6,12 @@ pygmentsCodefences = true
 pygmentsUseClasses = true
 pygmentsStyle = "colorful"
 disqusShortname = "evilroots-blog"
+paginate = 5000 #frontpage pagination
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [Author]
     name = "evilroot"
@@ -22,8 +28,12 @@ disqusShortname = "evilroots-blog"
     url = "/"
     weight = 1
 
-[Params]
+[params]
     intro = true
+    title = "Software Engineering"
+    slogan = "$ grep -rni \"The how's and why's\" ."
+    SEOTitle = "Rich Youngkin Blog"
+    keyword = "Rich, Youngkin, Raspberry, Pi, Docker, Kubernetes, Go, Golang, Microservice"
     headline = "Welcome to evilroot's blog"
     description = "rants, ideas, comments..."
     opengraph = true

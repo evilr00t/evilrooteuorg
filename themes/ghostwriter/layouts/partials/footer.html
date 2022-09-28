@@ -13,14 +13,14 @@
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; {{ .Site.LastChange.Format "2006" }} / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                    <span>&copy; {{ .Site.LastChange.Format "2006" }} - ∞ / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span></p>
                     <p class="footer-copyright">
                     <span>
                         <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
-                    <span> and edited by <a href="https://github.com/evilr00t">evilroot</a></span>
+                    <span> and modded by <a href="https://github.com/evilr00t">evilroot</a></span>
                 </p>
             </div>
         </footer>
@@ -30,10 +30,9 @@
         {{ else if .Site.Params.highlightJsLocalUrl }}
             <script defer src="{{ .Site.BaseURL }}{{ .Site.Params.highlightJsLocalUrl }}"></script>
         {{ else }}
-            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js" crossorigin="anonymous"></script>
+            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js" crossorigin="anonymous"></script>
         {{ end }}
-
-        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js" integrity="sha256-nA828blBCdUSSdI8jpciOZsf72IGt1eBcdx1ioEfa8o=" crossorigin="anonymous"></script>
         <script defer src="{{ .Site.BaseURL }}js/scripts.js"></script>
     </body>
