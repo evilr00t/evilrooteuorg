@@ -6,19 +6,19 @@
   "author": "Juraj Bubniak <juraj.bubniak@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --progress --colors --watch"
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --progress --watch"
   },
   "devDependencies": {
-    "css-loader": "^0.28.11",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "node-sass": "^4.12.0",
-    "normalize.css": "^7.0.0",
-    "optimize-css-assets-webpack-plugin": "^3.2.0",
-    "perfectionist": "^2.4.0",
-    "postcss-discard-comments": "^2.0.4",
-    "sass-loader": "^6.0.7",
-    "style-loader": "^0.19.1",
-    "webpack": "^3.12.0"
+    "css-loader": "^6.5.1",
+    "css-minimizer-webpack-plugin": "^3.3.1",
+    "mini-css-extract-plugin": "^2.4.5",
+    "node-sass": "^7.0.1",
+    "normalize.css": "^8.0.1",
+    "sass-loader": "^12.4.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-fix-style-only-entries": "^0.6.1",
+    "webpack-remove-empty-scripts": "^0.7.2"
   }
 }
