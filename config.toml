@@ -2,20 +2,17 @@ baseURL = "https://evilroot.eu.org/"
 languageCode = "en-gb"
 title = "evilroot's blog"
 theme = "ghostwriter"
-pygmentsCodefences = true
-pygmentsUseClasses = true
-disqusShortname = "evilroots-blog"
-paginate = 5000 #frontpage pagination
+paginate = 5 #frontpage pagination
 
 [markup]
-    [highlight]
-    codeFences = true
+  [markup.highlight]
+    codeFences = false
     guessSyntax = false
     hl_Lines = ""
     lineNoStart = 1
     lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
+    lineNumbersInTable = false
+    noClasses = false
     tabWidth = 2
 
 [Author]
@@ -34,29 +31,29 @@ paginate = 5000 #frontpage pagination
     url = "/"
     weight = 1
 [[menu.main]]
-    name = "Projects"
-    url = "/project/"
+    name = "Various"
+    url = "/various/"
     weight = 2
 [[menu.main]]
     name = "Contact"
     url = "/page/contact/"
     weight = 3
-[[menu.main]]
-    name = "About"
-    url = "/page/about/"
-    weight = 4
+# [[menu.main]]
+#     name = "About"
+#     url = "/page/about/"
+#     weight = 4
 
 [params]
     intro = true
-    title = "Software Engineering"
+    title = "evilroot's place in space"
     slogan = "$ grep -rni \"The how's and why's\" ."
     headline = "Welcome to evilroot's blog"
     description = "rants, ideas, comments..."
     opengraph = true
     shareTwitter = true
     readingTime = true
-    readingTimeText = "Estimated reading time:"
-    dateFormat = "Mon, Jan 2, 2006"
+    readingTimeText = "Reading time:"
+    dateFormat = "2 Jan, 2006"
     github = "https://github.com/evilr00t"
     linkedin = "https://linkedin.com/in/evilr00t/"
     shareFacebook = false
