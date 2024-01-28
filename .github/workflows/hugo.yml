@@ -49,7 +49,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 16
-      - run: cd themes/ghostwriter && yarn run build
+      - run: cd themes/ghostwriter && npm install && yarn run build
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
