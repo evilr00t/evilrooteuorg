@@ -1,8 +1,8 @@
-baseURL = "https://evilroot.eu.org/"
 languageCode = "en-gb"
 title = "evilroot's blog"
 theme = "ghostwriter"
 paginate = 5 #frontpage pagination
+disqusShortname = "evilroot"
 
 [markup]
   [markup.highlight]
@@ -59,3 +59,4 @@ paginate = 5 #frontpage pagination
     shareFacebook = false
     shareGooglePlus = false
     shareLinkedIn = true
+
