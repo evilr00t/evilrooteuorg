@@ -2,7 +2,7 @@
 title: "SOPS - an easy way to encrypt your credentials..."
 description: "SOPS + PGP + kubernetes..."
 date: 2019-08-14T13:51:07+0100
-draft: false
+draft: true
 keywords: linux, devops
 ---
 
