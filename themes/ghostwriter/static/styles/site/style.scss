@@ -653,6 +653,26 @@ table tr {
 .footer-copyright a:hover {
   color: $text-bright; }
 
+.footer-terminal {
+  text-transform: none;
+  color: $text-dim; }
+
+.footer-terminal .cursor {
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+  background: $accent;
+  animation: cursor-blink 1s steps(1) infinite; }
+
+@keyframes cursor-blink {
+  50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-terminal .cursor {
+    animation: none; } }
+
 /* ============================================================ */
 /* NProgress */
 /* ============================================================ */
