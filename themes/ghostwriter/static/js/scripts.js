@@ -17,5 +17,5 @@ jQuery(function($) {
   });
 });
 
-mediumZoom(document.querySelectorAll('img'))
+mediumZoom(document.querySelectorAll('.post-content img'))
 

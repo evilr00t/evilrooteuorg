@@ -1,0 +1,23 @@
+{{ partial "header.html" . }}
+
+<div class="container">
+    <article class="post-container">
+        {{ partial "page-header.html" . }}
+
+        <div class="post-content clearfix">
+            {{ .Content }}
+
+            <dl class="terminal-block">
+                <p class="terminal-line terminal-prompt">cat contact.txt</p>
+                {{ range .Params.channels }}
+                <div class="terminal-row">
+                    <dt>{{ .label }}</dt>
+                    <dd><a href="{{ .href }}"{{ if hasPrefix .href "http" }} rel="me"{{ end }}>{{ .value }}</a></dd>
+                </div>
+                {{ end }}
+            </dl>
+        </div>
+    </article>
+</div>
+
+{{ partial "footer.html" . }}

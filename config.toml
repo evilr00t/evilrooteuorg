@@ -36,7 +36,7 @@ disqusShortname = "evilroot"
     weight = 2
 [[menu.main]]
     name = "Contact"
-    url = "/page/contact/"
+    url = "/contact/"
     weight = 3
 # [[menu.main]]
 #     name = "About"
@@ -56,6 +56,7 @@ disqusShortname = "evilroot"
     dateFormat = "2 Jan, 2006"
     github = "https://github.com/evilr00t"
     linkedin = "https://linkedin.com/in/evilr00t/"
+    email = "k@e-dot.uk"
     shareFacebook = false
     shareGooglePlus = false
     shareLinkedIn = true
