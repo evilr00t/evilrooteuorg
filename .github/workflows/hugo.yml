@@ -6,6 +6,10 @@ on:
   push:
     branches: ["master"]
 
+  # Validate the build on pull requests without deploying
+  pull_request:
+    branches: ["master"]
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -31,25 +35,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.120.4
+      HUGO_VERSION: 0.123.8
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
-      - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - run: cd themes/ghostwriter && npm install && yarn run build
+          node-version: 20
+          cache: npm
+          cache-dependency-path: themes/ghostwriter/package-lock.json
+
+      - name: Build theme assets
+        run: cd themes/ghostwriter && npm ci && npm run build
+
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
@@ -59,13 +67,15 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
-  # Deployment job
+  # Deployment job (skipped for pull_request runs, which only validate the build)
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
