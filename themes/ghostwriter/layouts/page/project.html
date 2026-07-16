@@ -1,0 +1,24 @@
+{{ partial "header.html" . }}
+
+<div class="container">
+    <article class="post-container">
+        {{ partial "page-header.html" . }}
+
+        <div class="post-content clearfix">
+            {{ .Content }}
+
+            <ol class="project-list">
+                <li class="terminal-line terminal-prompt">ls -la ~/projects</li>
+                {{ range .Params.repos }}
+                <li class="project-entry">
+                    <a class="project-name" href="{{ .url }}">{{ .name }}</a>
+                    {{ if .lang }}<span class="project-lang">{{ .lang }}</span>{{ end }}
+                    <p class="project-description">{{ .description }}</p>
+                </li>
+                {{ end }}
+            </ol>
+        </div>
+    </article>
+</div>
+
+{{ partial "footer.html" . }}
