@@ -6,7 +6,7 @@ disqusShortname = "evilroot"
 
 [markup]
   [markup.highlight]
-    codeFences = false
+    codeFences = true
     guessSyntax = false
     hl_Lines = ""
     lineNoStart = 1
@@ -14,10 +14,6 @@ disqusShortname = "evilroot"
     lineNumbersInTable = false
     noClasses = false
     tabWidth = 2
-
-[Author]
-    name = "evilroot"
-    profile = "https://twitter.com/evilr00t"
 
 [Taxonomies]
     tag = "tags"
@@ -61,3 +57,6 @@ disqusShortname = "evilroot"
     shareGooglePlus = false
     shareLinkedIn = true
 
+    [params.author]
+        name = "evilroot"
+        profile = "https://twitter.com/evilr00t"
