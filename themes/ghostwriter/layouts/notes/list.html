@@ -1,0 +1,40 @@
+{{ partial "header.html" . }}
+
+<div id="notes-index" class="container">
+    <header class="notes-list-header">
+        <h1>Notes</h1>
+        <p class="notes-description">Quick thoughts, code snippets, and TIL moments.</p>
+    </header>
+
+    {{ $pages := .Pages }}
+    {{ range $pages.GroupByDate "2006" "desc" }}
+        <section class="notes-year">
+            <h2 class="notes-year-header">{{ .Key }}</h2>
+            
+            {{ range .Pages.GroupByDate "January" "desc" }}
+                <div class="notes-month">
+                    <h3 class="notes-month-header">{{ .Key }} <span class="notes-count">({{ len .Pages }} {{ if eq (len .Pages) 1 }}note{{ else }}notes{{ end }})</span></h3>
+                    
+                    <ul class="notes-list">
+                        {{ range .Pages }}
+                            <li class="note-stub">
+                                <time class="note-stub-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan" }}</time>
+                                <a href="{{ .Permalink }}" class="note-stub-link">{{ .Title }}</a>
+                                {{ if .Params.tags }}
+                                    <span class="note-stub-tags">
+                                        {{ $tags := .Params.tags }}
+                                        {{ range $index, $tag := $tags }}
+                                            {{ if eq $index 0 }}#{{ end }}{{ $tag }}{{ if lt $index (sub (len $tags) 1) }}, #{{ end }}
+                                        {{ end }}
+                                    </span>
+                                {{ end }}
+                            </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            {{ end }}
+        </section>
+    {{ end }}
+</div>
+
+{{ partial "footer.html" . }}

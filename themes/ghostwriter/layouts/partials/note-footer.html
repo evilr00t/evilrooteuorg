@@ -1,0 +1,11 @@
+<footer class="note-footer">
+    {{ if .Params.tags }}
+        <p class="note-tags">
+            <span class="note-tags-label">Tags:</span>
+            {{ $len := len .Params.tags }}
+            {{ range $index, $tag := .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/" class="note-tag">#{{ . }}</a>{{ if lt $index (sub $len 1) }} {{ end }}
+            {{ end }}
+        </p>
+    {{ end }}
+</footer>

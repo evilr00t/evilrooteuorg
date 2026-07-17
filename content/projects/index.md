@@ -3,7 +3,8 @@ title: "Projects"
 description: "Projects made by me"
 date: 2020-02-25T16:22:19+0000
 keywords: linux, devops
-layout: "project"
+type: "page"
+layout: "projects"
 repos:
   - name: "dotfiles"
     description: "my dotfiles"

@@ -7,7 +7,7 @@ $bg-panel: #151516;
 $text: #c8c8c8;
 $text-dim: #AEADAD;
 $text-bright: #f2f2f2;
-$accent: #ff3b2f;
+$accent: #f00800;
 $accent-soft: #451512;
 $border: #2a2a2a;
 $font-display: "JetBrains Mono", "Space Mono", monospace;
@@ -46,7 +46,7 @@ body {
   height: 100%;
   transform: translateX(-50%);
   z-index: -1;
-  background-color: $bg-panel; }
+  background-color: #1a1a1c; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-display;
@@ -127,12 +127,13 @@ img[src$="align-right"] {
   margin-left: 40px; }
 
 pre {
-  background: $bg-panel;
+  background: #1a1a1c;
   border: 1px solid $border;
+  border-left: 3px solid $accent;
   border-radius: 3px;
   margin: 0 0 20px;
   overflow-x: auto;
-  padding: 10px;
+  padding: 15px;
   font-size: 16px; }
 
 pre code {
@@ -263,7 +264,8 @@ table tr {
   margin: 0 auto;
   position: relative;
   width: 100%;
-  max-width: 1040px; }
+  max-width: 1040px;
+  padding: 0 20px; }
 
 #wrapper {
   height: auto;
@@ -353,6 +355,15 @@ table tr {
 .site-logo img {
   margin: 0; }
 
+.site-slogan {
+  text-align: center;
+  margin: 20px 0 0 0;
+  font-family: $font-display;
+  font-size: 16px;
+  color: $accent;
+  text-shadow: 0 0 8px rgba($accent, 0.8), 0 0 16px rgba($accent, 0.4);
+  letter-spacing: 0.02em; }
+
 .site-nav {
   list-style: none;
   margin: 28px 0 10px;
@@ -374,7 +385,9 @@ table tr {
   display: none; }
 
 .post-container {
-  margin: 0 40px; }
+  margin: 0;
+  max-width: 1000px;
+  margin: 0 auto; }
 
 .post-header {
   border-bottom: 6px dashed $accent-soft;
@@ -506,6 +519,9 @@ table tr {
 .post-stub:first-child {
   padding-top: 0; }
 
+.post-stub:nth-child(even) {
+  background: $bg-panel; }
+
 .post-stub a {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -627,8 +643,11 @@ table tr {
 .terminal-block {
   margin: 30px 0 0;
   padding: 20px;
-  background: $bg-panel;
-  border: 1px solid $border; }
+  background: #0a0a0a;
+  border: 1px solid $border;
+  border-left: 3px solid $accent;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); }
 
 .terminal-row {
   display: flex;
@@ -654,38 +673,57 @@ table tr {
 .project-list {
   list-style: none;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  background: #0a0a0a;
+  border: 1px solid $border;
+  border-left: 3px solid $accent;
+  border-radius: 3px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); }
 
 .project-entry {
-  padding: 15px 0;
-  border-bottom: 1px dotted $border; }
+  padding: 10px 0;
+  border-bottom: 1px dotted $border;
+  font-family: $font-display; }
 
 .project-entry:last-child {
   border-bottom: none; }
 
+.project-entry::before {
+  content: "drwxr-xr-x  ";
+  color: $text-dim;
+  margin-right: 10px; }
+
 .project-name {
   font-family: $font-display;
   font-weight: 700;
-  font-size: 18px; }
+  font-size: 16px;
+  color: $accent; }
+
+.project-name:hover {
+  text-decoration: underline; }
 
 .project-lang {
   margin-left: 10px;
   padding: 1px 6px;
   font-size: 11px;
   text-transform: uppercase;
-  color: $text-dim;
-  border: 1px solid $border;
-  border-radius: 3px; }
+  color: $accent;
+  border: 1px solid $accent;
+  border-radius: 3px;
+  background: rgba($accent, 0.1); }
 
 .project-description {
-  margin: 6px 0 0;
-  color: #c2c1c1; }
+  margin: 6px 0 0 11ch;
+  color: $text-dim;
+  font-family: $font-display;
+  font-size: 14px; }
 
 /* ============================================================ */
 /* Footer */
 /* ============================================================ */
 .footer {
-  background: $bg-panel;
+  background: $bg;
   color: $text-bright;
   height: 265px;
   margin-top: 95px;

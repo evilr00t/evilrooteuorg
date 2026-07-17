@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{ .Title }} &middot; {{ .Site.Author.name }}</title>
+        <title>{{ .Title }} &middot; {{ .Site.Params.author.name }}</title>
         <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
@@ -13,6 +13,7 @@
         {{ if .Site.Params.opengraph }}{{ partial "opengraph.html" . }}{{ end }}
         <link rel="stylesheet" href="{{ .Site.BaseURL }}dist/site.css" onload="this.media='all'">
         <link rel="stylesheet" href="{{ .Site.BaseURL }}dist/syntax.css">
+        <link rel="stylesheet" href="{{ .Site.BaseURL }}dist/notes.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="//fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@700;800&display=swap" rel="preload" as="style" type="text/css" onload="this.rel='stylesheet'"/>
         {{ if .OutputFormats.Get "RSS" }}
@@ -97,6 +98,12 @@
                             </a>
                         {{ end }}
                     </div>
+
+                    {{ with .Site.Params.slogan }}
+                    <div class="site-slogan">
+                        <span class="terminal-prompt">{{ . }}</span>
+                    </div>
+                    {{ end }}
 
                     <ul class="site-nav">
                         {{ partial "navigation.html" . }}

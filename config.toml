@@ -1,62 +1,66 @@
 languageCode = "en-gb"
 title = "evilroot's blog"
 theme = "ghostwriter"
-paginate = 5 #frontpage pagination
+paginate = 5                 #frontpage pagination
 disqusShortname = "evilroot"
 
+[author]
+name = "evilroot"
+
 [markup]
-  [markup.highlight]
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ""
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = false
-    noClasses = false
-    tabWidth = 2
+[markup.highlight]
+codeFences = true
+guessSyntax = false
+hl_Lines = ""
+lineNoStart = 1
+lineNos = false
+lineNumbersInTable = false
+noClasses = false
+tabWidth = 2
 
 [Taxonomies]
-    tag = "tags"
+tag = "tags"
 
 [Permalinks]
-    post = "/:year/:month/:day/:filename/"
+post = "/:year/:month/:day/:contentbasename/"
+notes = "/:year/:month/:day/:contentbasename/"
 
 [menu]
 [[menu.main]]
-    name = "Blog"
-    url = "/"
-    weight = 1
+name = "Blog"
+url = "/"
+weight = 1
 [[menu.main]]
-    name = "Various"
-    url = "/various/"
-    weight = 2
+name = "Notes"
+url = "/notes/"
+weight = 2
 [[menu.main]]
-    name = "Contact"
-    url = "/contact/"
-    weight = 3
-# [[menu.main]]
-#     name = "About"
-#     url = "/page/about/"
-#     weight = 4
+name = "Projects"
+url = "/projects/"
+weight = 3
+[[menu.main]]
+name = "Contact"
+url = "/contact/"
+weight = 4
 
 [params]
-    intro = true
-    title = "evilroot's place in space"
-    slogan = "$ grep -rni \"The how's and why's\" ."
-    headline = "Welcome to evilroot's blog"
-    description = "rants, ideas, comments..."
-    opengraph = true
-    shareTwitter = true
-    readingTime = true
-    readingTimeText = "Reading time:"
-    dateFormat = "2 Jan, 2006"
-    github = "https://github.com/evilr00t"
-    linkedin = "https://linkedin.com/in/evilr00t/"
-    email = "k@e-dot.uk"
-    shareFacebook = false
-    shareGooglePlus = false
-    shareLinkedIn = true
+intro = true
+title = "evilroot's place in space"
+slogan = "$ grep -rni \"The how's and why's\" ."
+headline = "Welcome to evilroot's blog"
+description = "rants, ideas, comments..."
+opengraph = true
+shareTwitter = true
+readingTime = true
+readingTimeText = "Reading time:"
+dateFormat = "2 Jan, 2006"
+github = "https://github.com/evilr00t"
+linkedin = "https://linkedin.com/in/evilr00t/"
+email = "k@e-dot.uk"
+shareFacebook = false
+shareGooglePlus = false
+shareLinkedIn = true
 
-    [params.author]
-        name = "evilroot"
-        profile = "https://twitter.com/evilr00t"
+[params.author]
+name = "evilroot"
+profile = "https://twitter.com/evilr00t"

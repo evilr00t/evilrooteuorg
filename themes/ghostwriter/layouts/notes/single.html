@@ -1,0 +1,11 @@
+{{ partial "header.html" . }}
+
+<div class="container">
+    <article class="note-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        {{ partial "note-header.html" . }}
+        {{ partial "note-content.html" . }}
+        {{ partial "note-footer.html" . }}
+    </article>
+</div>
+
+{{ partial "footer.html" . }}

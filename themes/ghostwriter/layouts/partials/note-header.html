@@ -1,0 +1,6 @@
+<header class="note-header">
+    <h2 class="note-title">{{ .Title }}</h2>
+    <time class="note-date" datetime="{{ .Date.Format "2006-01-02" }}">
+        {{ dateFormat (default "Mon, Jan 2, 2006" .Site.Params.dateFormat) .Date }}
+    </time>
+</header>
