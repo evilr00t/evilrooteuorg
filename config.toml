@@ -1,4 +1,4 @@
-languageCode = "en-gb"
+locale = "en-GB"
 title = "evilroot's blog"
 theme = "ghostwriter"
 paginate = 5                 #frontpage pagination
@@ -46,7 +46,7 @@ weight = 4
 [params]
 intro = true
 title = "evilroot's place in space"
-slogan = "$ grep -rni \"The how's and why's\" ."
+slogan = "grep -rni \"The how's and why's\" ."
 headline = "Welcome to evilroot's blog"
 description = "rants, ideas, comments..."
 opengraph = true

@@ -6,35 +6,49 @@
         <p class="notes-description">Quick thoughts, code snippets, and TIL moments.</p>
     </header>
 
-    {{ $pages := .Pages }}
-    {{ range $pages.GroupByDate "2006" "desc" }}
-        <section class="notes-year">
-            <h2 class="notes-year-header">{{ .Key }}</h2>
-            
-            {{ range .Pages.GroupByDate "January" "desc" }}
-                <div class="notes-month">
-                    <h3 class="notes-month-header">{{ .Key }} <span class="notes-count">({{ len .Pages }} {{ if eq (len .Pages) 1 }}note{{ else }}notes{{ end }})</span></h3>
-                    
-                    <ul class="notes-list">
-                        {{ range .Pages }}
-                            <li class="note-stub">
-                                <time class="note-stub-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan" }}</time>
-                                <a href="{{ .Permalink }}" class="note-stub-link">{{ .Title }}</a>
-                                {{ if .Params.tags }}
-                                    <span class="note-stub-tags">
-                                        {{ $tags := .Params.tags }}
-                                        {{ range $index, $tag := $tags }}
-                                            {{ if eq $index 0 }}#{{ end }}{{ $tag }}{{ if lt $index (sub (len $tags) 1) }}, #{{ end }}
+    <div class="terminal-window notes-terminal">
+        <div class="terminal-toolbar" aria-hidden="true">
+            <span class="terminal-dot terminal-dot-red"></span>
+            <span class="terminal-dot terminal-dot-amber"></span>
+            <span class="terminal-dot terminal-dot-green"></span>
+            <span class="terminal-window-title">~/notes</span>
+        </div>
+        <p class="terminal-command">find . -type f | sort -r</p>
+
+        {{ $pages := .Pages }}
+        {{ range $pages.GroupByDate "2006" "desc" }}
+            <section class="notes-year">
+                <h2 class="notes-year-header">./{{ .Key }}</h2>
+
+                {{ range .Pages.GroupByDate "January" "desc" }}
+                    <div class="notes-month">
+                        <h3 class="notes-month-header">{{ .Key }} <span class="notes-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}file{{ else }}files{{ end }}</span></h3>
+
+                        <ul class="notes-list">
+                            {{ range .Pages }}
+                                {{ $machineDate := .Date.Format "2006-01-02" }}
+                                <li class="note-stub">
+                                    <a href="{{ .Permalink }}" class="note-stub-link">
+                                        <span class="note-stub-mode" aria-hidden="true">-rw-r--r--</span>
+                                        <time class="note-stub-date" datetime="{{ $machineDate }}">{{ .Date.Format "02 Jan" }}</time>
+                                        <span class="note-stub-title">{{ .Title }}</span>
+                                        {{ if .Params.tags }}
+                                            <span class="note-stub-tags">
+                                                {{ $tags := .Params.tags }}
+                                                {{ range $index, $tag := $tags }}
+                                                    {{ if eq $index 0 }}#{{ end }}{{ $tag }}{{ if lt $index (sub (len $tags) 1) }}, #{{ end }}
+                                                {{ end }}
+                                            </span>
                                         {{ end }}
-                                    </span>
-                                {{ end }}
-                            </li>
-                        {{ end }}
-                    </ul>
-                </div>
-            {{ end }}
-        </section>
-    {{ end }}
+                                    </a>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                {{ end }}
+            </section>
+        {{ end }}
+    </div>
 </div>
 
 {{ partial "footer.html" . }}

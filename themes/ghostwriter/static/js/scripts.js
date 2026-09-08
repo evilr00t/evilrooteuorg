@@ -1,69 +1,67 @@
-jQuery(function($) {
-
-  /* ============================================================ */
-  /* Responsive Videos */
-  /* ============================================================ */
-
-  $(".post-content").fitVids();
-
-  /* ============================================================ */
-  /* Scroll To Top */
-  /* ============================================================ */
-
-  $('.js-jump-top').on('click', function(e) {
-    e.preventDefault();
-
-    $('html, body').animate({ 'scrollTop': 0 });
-  });
-});
-
-mediumZoom(document.querySelectorAll('.post-content img'))
-
 /* ============================================================ */
-/* Footer terminal typewriter */
+/* Progressive enhancements */
 /* ============================================================ */
-(function () {
-  var el = document.querySelector('.footer-terminal-text');
-  if (!el) return;
 
-  var commands = (el.dataset.commands || '').split(',').filter(Boolean);
+document.addEventListener("DOMContentLoaded", () => {
+  var jumpTop = document.querySelector(".js-jump-top");
+
+  if (jumpTop) {
+    jumpTop.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  if (typeof window.mediumZoom === "function") {
+    window.mediumZoom(document.querySelectorAll(".post-content img"), {
+      background: "rgba(11, 11, 12, 0.92)",
+      margin: 24,
+    });
+  }
+
+  var terminal = document.querySelector(".footer-terminal-text");
+  if (!terminal) return;
+
+  var commands = (terminal.dataset.commands || "").split(",").filter(Boolean);
   if (!commands.length) return;
 
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    el.textContent = commands[0];
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    terminal.textContent = commands[0];
     return;
   }
 
-  var cmdIndex = 0;
-  var charIndex = 0;
+  var commandIndex = 0;
+  var characterIndex = 0;
   var deleting = false;
 
   function tick() {
-    var current = commands[cmdIndex];
+    var current = commands[commandIndex];
     var delay = 60;
 
-    if (!deleting) {
-      charIndex++;
-      el.textContent = current.slice(0, charIndex);
-      if (charIndex === current.length) {
-        deleting = true;
-        delay = 1600;
-      }
-    } else {
-      charIndex--;
-      el.textContent = current.slice(0, charIndex);
-      if (charIndex === 0) {
+    if (deleting) {
+      characterIndex -= 1;
+      terminal.textContent = current.slice(0, characterIndex);
+      if (characterIndex === 0) {
         deleting = false;
-        cmdIndex = (cmdIndex + 1) % commands.length;
+        commandIndex = (commandIndex + 1) % commands.length;
         delay = 300;
       } else {
         delay = 35;
       }
+    } else {
+      characterIndex += 1;
+      terminal.textContent = current.slice(0, characterIndex);
+      if (characterIndex === current.length) {
+        deleting = true;
+        delay = 1600;
+      }
     }
 
-    setTimeout(tick, delay);
+    window.setTimeout(tick, delay);
   }
 
   tick();
-})();
-
+});

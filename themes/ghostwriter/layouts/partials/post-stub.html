@@ -1,9 +1,22 @@
+{{ $machineDate := .Date.Format "2006-01-02" }}
 <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="{{ .Permalink }}" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">{{ .Title }}</h4>
-        <time class="post-stub-date" datetime="{{ .Date.Format "2006-01-02" }}">Published {{ dateFormat (default "Mon, Jan 2, 2006" .Site.Params.dateFormat) .Date }}</time>
-        {{ with .Params.featured }}
-            <span class="post-stub-tag">Featured</span>
-        {{ end }}
+    <a href="{{ .Permalink }}" itemprop="url" title="Read {{ .Title }}">
+        <time class="post-stub-date" datetime="{{ $machineDate }}" itemprop="datePublished">
+            <span class="post-stub-month">{{ upper (.Date.Format "Jan") }}</span>
+            <span class="post-stub-day">{{ .Date.Format "02" }}</span>
+            <span class="post-stub-year">{{ .Date.Format "2006" }}</span>
+        </time>
+        <span class="post-stub-body">
+            <span class="post-stub-kicker">
+                Article
+                {{ with .Params.featured }}<span class="post-stub-tag">Featured</span>{{ end }}
+            </span>
+            <h2 class="post-stub-title" itemprop="name">{{ .Title }}</h2>
+            {{ with .Description }}
+                <span class="post-stub-description" itemprop="description">{{ . }}</span>
+            {{ end }}
+            <span class="post-stub-meta">{{ .ReadingTime }} min read</span>
+        </span>
+        <span class="post-stub-arrow" aria-hidden="true">→</span>
     </a>
 </li>

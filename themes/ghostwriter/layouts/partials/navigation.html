@@ -1,5 +1,11 @@
+{{ $currentPage := . }}
 {{ range .Site.Menus.main.ByWeight }}
+    {{ $active := or (eq $currentPage.RelPermalink .URL) ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
     <li class="site-nav-item">
-        <a title="{{ .Name }}" href="{{ .URL }}">{{ .Name }}</a>
+        {{ if $active }}
+            <a title="{{ .Name }}" href="{{ .URL }}" aria-current="page">{{ .Name }}</a>
+        {{ else }}
+            <a title="{{ .Name }}" href="{{ .URL }}">{{ .Name }}</a>
+        {{ end }}
     </li>
 {{ end }}

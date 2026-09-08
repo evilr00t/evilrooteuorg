@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html{{ if .Site.Params.opengraph }} prefix="og: http://ogp.me/ns#"{{ end }} lang="en">
+<html lang="en-GB">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,13 +11,15 @@
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {{ if .Site.Params.opengraph }}{{ partial "opengraph.html" . }}{{ end }}
-        <link rel="stylesheet" href="{{ .Site.BaseURL }}dist/site.css" onload="this.media='all'">
+        <link rel="stylesheet" href="{{ .Site.BaseURL }}dist/site.css">
         <link rel="stylesheet" href="{{ .Site.BaseURL }}dist/syntax.css">
         <link rel="stylesheet" href="{{ .Site.BaseURL }}dist/notes.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="//fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@700;800&display=swap" rel="preload" as="style" type="text/css" onload="this.rel='stylesheet'"/>
-        {{ if .OutputFormats.Get "RSS" }}
-            <link href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@700;800&display=swap">
+        {{ with .OutputFormats.Get "RSS" }}
+            <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml">
         {{ end }}
         {{ partial "extra-in-head.html" . }}
         {{ partial "exponea.html" . }}
@@ -43,8 +45,8 @@
     <body>
         {{ template "_internal/google_analytics.html" . }}
 
-        <div id="wrapper">
-            <header class="site-header">
+        <a class="skip-link" href="#content-start">Skip to content</a>
+        <header class="site-header">
                 <div class="container">
                     <div class="site-title-wrapper">
                         {{ with .Site.Params.logo }}
@@ -56,7 +58,7 @@
                                 <a title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
                             </h1>
                         {{ end }}
-                        <a class="button-square" href="{{ .Site.BaseURL }}index.xml"><i class="fa fa-rss"></i></a>
+                        <a class="button-square" href="{{ .Site.BaseURL }}index.xml" aria-label="RSS feed" title="RSS feed"><i class="fa fa-rss" aria-hidden="true"></i></a>
                         {{ with .Site.Params.twitter }}
                             <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="{{ . }}" rel="me">
                                 <i class="fa-brands fa-twitter"></i>
@@ -105,10 +107,12 @@
                     </div>
                     {{ end }}
 
-                    <ul class="site-nav">
-                        {{ partial "navigation.html" . }}
-                    </ul>
-                </div>
-            </header>
-
-            <div class="container">
+                    <nav aria-label="Primary navigation">
+                        <ul class="site-nav">
+                            {{ partial "navigation.html" . }}
+                        </ul>
+                    </nav>
+            </div>
+        </header>
+        <span id="content-start" tabindex="-1"></span>
+        {{ if false }}</body></html>{{ end }}

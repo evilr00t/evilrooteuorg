@@ -7,16 +7,27 @@
         <div class="post-content clearfix">
             {{ .Content }}
 
-            <ol class="project-list">
-                <li class="terminal-line terminal-prompt">ls -la ~/projects</li>
-                {{ range .Params.repos }}
-                <li class="project-entry">
-                    <a class="project-name" href="{{ .url }}">{{ .name }}</a>
-                    {{ if .lang }}<span class="project-lang">{{ .lang }}</span>{{ end }}
-                    <p class="project-description">{{ .description }}</p>
-                </li>
-                {{ end }}
-            </ol>
+            <div class="terminal-window projects-terminal">
+                <div class="terminal-toolbar" aria-hidden="true">
+                    <span class="terminal-dot terminal-dot-red"></span>
+                    <span class="terminal-dot terminal-dot-amber"></span>
+                    <span class="terminal-dot terminal-dot-green"></span>
+                    <span class="terminal-window-title">~/projects</span>
+                </div>
+                <p class="terminal-command">ls -la ~/projects</p>
+                <ol class="project-list">
+                    {{ range .Params.repos }}
+                    <li class="project-entry">
+                        <span class="project-mode" aria-hidden="true">drwxr-xr-x</span>
+                        <div class="project-details">
+                            <a class="project-name" href="{{ .url }}" rel="external">{{ .name }} <span aria-hidden="true">↗</span></a>
+                            {{ if .lang }}<span class="project-lang">{{ .lang }}</span>{{ end }}
+                            <p class="project-description">{{ .description }}</p>
+                        </div>
+                    </li>
+                    {{ end }}
+                </ol>
+            </div>
         </div>
     </article>
 </div>

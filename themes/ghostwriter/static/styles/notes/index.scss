@@ -1,0 +1,237 @@
+/* Notes index */
+.notes-list-header {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px dashed #4d1714;
+  text-align: center;
+}
+
+.notes-list-header h1 {
+  margin-bottom: 0.5rem;
+  color: #f2f2f2;
+  font-size: clamp(2rem, 7vw, 3rem);
+}
+
+.notes-description,
+.notes-count,
+.note-stub-date,
+.note-date,
+.note-tags-label {
+  color: var(--color-text-dim);
+}
+
+.notes-description {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.notes-terminal {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.notes-year {
+  margin: 0;
+  padding: 22px 18px 4px;
+}
+
+.notes-year + .notes-year {
+  border-top: 1px solid var(--color-border);
+}
+
+.notes-year-header {
+  margin: 0 0 20px;
+  color: var(--color-accent);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.notes-year-header::before {
+  content: "drwxr-xr-x  ";
+  color: #717680;
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+
+.notes-month {
+  margin-bottom: 24px;
+}
+
+.notes-month-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 8px;
+  color: #d8dee9;
+  font-size: 0.82rem;
+}
+
+.notes-month-header::before {
+  content: "#";
+  color: #717680;
+}
+
+.notes-count {
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
+.notes-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.note-stub {
+  margin: 0;
+  border-bottom: 1px dotted var(--color-border);
+}
+
+.note-stub:last-child {
+  border-bottom: 0;
+}
+
+.note-stub-link {
+  display: grid;
+  grid-template-columns: 9ch 5rem minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: baseline;
+  padding: 11px 10px;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-stub-link:hover,
+.note-stub-link:focus-visible {
+  color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.025);
+  box-shadow: inset 2px 0 0 var(--color-accent);
+}
+
+.note-stub-mode,
+.note-stub-date {
+  color: #717680;
+  font-family: "Space Mono", monospace;
+  font-size: 0.7rem;
+}
+
+.note-stub-title {
+  color: #d8dee9;
+  font-size: 0.84rem;
+}
+
+.note-stub-link:hover .note-stub-title,
+.note-stub-link:focus-visible .note-stub-title {
+  color: var(--color-accent);
+}
+
+.note-stub-tags {
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-style: normal;
+}
+
+/* Individual note */
+.note-container {
+  max-width: 760px;
+  margin: 2rem auto 0;
+  padding: 0;
+}
+
+.note-document {
+  padding: clamp(22px, 5vw, 48px);
+}
+
+.note-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.note-title {
+  margin: 0 0 0.5rem;
+  color: #f2f2f2;
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+}
+
+.note-date {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.note-date::before {
+  content: "published: ";
+  color: #717680;
+}
+
+.note-content {
+  margin-bottom: 2rem;
+  color: #d2d2d2;
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.note-content p {
+  margin-bottom: 1rem;
+}
+
+.note-content a {
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 59, 48, 0.45);
+}
+
+.note-content pre {
+  margin: 1.5rem 0;
+}
+
+.note-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.note-tags {
+  margin: 0;
+}
+
+.note-tags-label,
+.note-tag {
+  margin-right: 0.5rem;
+}
+
+.note-tag {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.note-tag:hover,
+.note-tag:focus-visible {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 700px) {
+  .notes-year {
+    padding-inline: 12px;
+  }
+
+  .note-stub-link {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 4px 10px;
+    padding-block: 13px;
+  }
+
+  .note-stub-mode {
+    display: none;
+  }
+
+  .note-stub-tags {
+    grid-column: 2;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .note-stub-tags {
+    display: none;
+  }
+}

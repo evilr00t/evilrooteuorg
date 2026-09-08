@@ -7,15 +7,33 @@
         <div class="post-content clearfix">
             {{ .Content }}
 
-            <dl class="terminal-block">
-                <p class="terminal-line terminal-prompt">cat contact.txt</p>
-                {{ range .Params.channels }}
-                <div class="terminal-row">
-                    <dt>{{ .label }}</dt>
-                    <dd><a href="{{ .href }}"{{ if hasPrefix .href "http" }} rel="me"{{ end }}>{{ .value }}</a></dd>
+            <div class="terminal-window contact-terminal">
+                <div class="terminal-toolbar" aria-hidden="true">
+                    <span class="terminal-dot terminal-dot-red"></span>
+                    <span class="terminal-dot terminal-dot-amber"></span>
+                    <span class="terminal-dot terminal-dot-green"></span>
+                    <span class="terminal-window-title">contact.txt</span>
                 </div>
-                {{ end }}
-            </dl>
+                <p class="terminal-command">cat ./contact.txt</p>
+                <p class="contact-lead">Pick a route. Say hello, share an idea, or send something interesting.</p>
+                <address class="contact-grid">
+                    {{ range .Params.channels }}
+                        {{ if hasPrefix .href "http" }}
+                            <a class="contact-card" href="{{ .href }}" rel="me">
+                                <span class="contact-label">{{ .label }}</span>
+                                <span class="contact-value">{{ .value }}</span>
+                                <span class="contact-arrow" aria-hidden="true">↗</span>
+                            </a>
+                        {{ else }}
+                            <a class="contact-card" href="{{ .href }}">
+                                <span class="contact-label">{{ .label }}</span>
+                                <span class="contact-value">{{ .value }}</span>
+                                <span class="contact-arrow" aria-hidden="true">→</span>
+                            </a>
+                        {{ end }}
+                    {{ end }}
+                </address>
+            </div>
         </div>
     </article>
 </div>

@@ -1,18 +1,16 @@
-            </div>
-        </div>
-
+{{ if false }}<html><body>{{ end }}
         <footer class="footer">
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
                         <a title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
                     </h1>
-                    <a class="button-square button-jump-top js-jump-top" href="#">
-                        <i class="fa fa-angle-up"></i>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to top" title="Back to top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
                     </a>
                 </div>
                 <p class="footer-copyright">
-                    <span class="footer-terminal">blog@evilroot:~$ <span class="footer-terminal-text" data-commands="whoami,cat mood.log,uptime -p,echo gg"></span><span class="cursor"></span></span>
+                    <span class="footer-terminal" aria-hidden="true">blog@evilroot:~$ <span class="footer-terminal-text" data-commands="whoami,cat mood.log,uptime -p,echo gg"></span><span class="cursor"></span></span>
                 </p>
                 <p class="footer-copyright">
                     <span>&copy; {{ now.Year }} - ∞ Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></span>
@@ -29,8 +27,6 @@
             </div>
         </footer>
 
-        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js" integrity="sha256-nA828blBCdUSSdI8jpciOZsf72IGt1eBcdx1ioEfa8o=" crossorigin="anonymous"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js" integrity="sha384-o0gqi06am9fKVfa/jWO8/UE7OxHG6t+fgq/XaASsuwT8OBsFcxN7YhjtqyTfIxtS" crossorigin="anonymous"></script>
         <script defer src="{{ .Site.BaseURL }}js/scripts.js"></script>
     </body>

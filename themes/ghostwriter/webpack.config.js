@@ -1,41 +1,37 @@
-const path = require('path');
-const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const path = require("path");
+const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   entry: {
-    site: path.join(__dirname, 'static', 'styles', 'site'),
-    syntax: path.join(__dirname, 'static', 'styles', 'syntax'),
+    site: path.join(__dirname, "static", "styles", "site"),
+    syntax: path.join(__dirname, "static", "styles", "syntax"),
+    notes: path.join(__dirname, "static", "styles", "notes"),
   },
   resolve: {
-    modules: [
-      'node_modules'
-    ],
-    extensions: ['.scss'],
+    modules: ["node_modules"],
+    extensions: [".scss"],
   },
   output: {
-    path: path.join(__dirname, 'static', 'dist'),
+    path: path.join(__dirname, "static", "dist"),
   },
   plugins: [
     new RemoveEmptyScriptsPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: "[name].css",
     }),
   ],
   optimization: {
     minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),
-    ],
+    minimizer: [new CssMinimizerPlugin()],
   },
   module: {
     rules: [
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      }
-    ]
-  }
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+    ],
+  },
 };
-
